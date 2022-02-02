@@ -67,7 +67,7 @@ export default {
   box-shadow: 0px 0px 3px 0px var(--color-five);
   border-radius: 0px 10px 6px 0px;
   position: fixed;
-  width: 45%;
+  width: 50%;
   height: 100vh;
   top: 0;
   left: 0;
