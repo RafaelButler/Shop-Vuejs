@@ -1,12 +1,24 @@
+:root {
+  --color-primary: ##e3f6f5;
+  --color-secondary: ##bae8e8;
+  --color-third: ##34a3a3;
+  --color-four: ##fafafa;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  background: var(--color-primary);
+}
+
+.main {
+  text-align: center;
   margin-top: 60px;
 }
 
 html {
   height: 100%;
+  background: var(--color-primary);
 }
