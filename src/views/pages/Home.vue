@@ -1,10 +1,17 @@
-<script>
+<script lang="ts">
 import ProductCard from "../../components/ProductCard.vue";
+import { some } from "../../data/source";
 
 export default {
   components: {
     ProductCard,
   },
+  data: () => {
+    return {
+      products: [] as Array<Object>,
+    };
+  },
+  mounted() {},
 };
 </script>
 
@@ -13,12 +20,7 @@ export default {
   <router-link to="/about">Go to about page</router-link>
 
   <div class="container mt-4">
-    <div class="wrapperCards">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-    </div>
+    <div class="wrapperCards"></div>
   </div>
 </template>
 
