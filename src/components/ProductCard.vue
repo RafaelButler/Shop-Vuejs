@@ -1,12 +1,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-
-interface propsProdcut {
-  id: number;
-  title: string;
-  imageUrl: string;
-  description: string;
-}
+import { propsProdcut } from "../interfaces/productInterface";
 
 export default defineComponent({
   name: "ProductCard",
@@ -18,6 +12,7 @@ export default defineComponent({
     },
   },
 });
+
 </script>
 
 <template>
@@ -32,13 +27,40 @@ export default defineComponent({
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ product.title }}</h5>
-          <p class="card-text">{{ product.description }}</p>
+          <h5 class="card-title main-text">{{ product.title }}</h5>
+          <p class="card-text desc">{{ product.description }}</p>
           <p class="card-text">
-            <small class="text-muted">Last updated 3 mins ago</small>
+            <p class="main-text">R$ {{ product.price }}</p>
           </p>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
+<style lang="scss" scoped>
+
+.card{
+
+  &:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  .card-body{
+    padding: 0rem 1.5rem;
+    .main-text{
+      font-size: 18px;
+      color: var(--color-main);
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: left;
+    }
+    .desc{
+      font-size: 14px;
+      text-align: left;
+    }
+  }
+
+}
+</style>

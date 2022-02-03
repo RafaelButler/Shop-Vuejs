@@ -1,0 +1,74 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Camiseta O Auto da Compadecida",
+            "imageUrl": "https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 2,
+            "title": "Camiseta Oxente",
+            "imageUrl": "https://chicorei.imgix.net/7253/1c0322b0-b95f-11e9-bfea-e9bf380d5279.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 39.90
+        },
+        {
+            "id": 3,
+            "title": "Camiseta RE CI FE",
+            "imageUrl": "https://chicorei.imgix.net/19120/0511c6a0-8042-11eb-b451-e36578b8003f.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 4,
+            "title": "Camiseta I Love You",
+            "imageUrl": "https://chicorei.imgix.net/13897/3ce71250-befa-11eb-abb7-996d253099d7.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 34.90
+        },
+        {
+            "id": 5,
+            "title": "Camiseta Baleia",
+            "imageUrl": "https://chicorei.imgix.net/17106/ddd73703-ce1b-11eb-9974-915d6499ddbe.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 6,
+            "title": "Camiseta Corisco",
+            "imageUrl": "https://chicorei.imgix.net/4320/c6744972-3105-11ec-8ead-4ddaaa10c82e.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 7,
+            "title": "Camiseta Glauber",
+            "imageUrl": "https://chicorei.imgix.net/21255/24bdb7f0-6194-11ec-9725-8bdfb5a05c80.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 8,
+            "title": "Camiseta Ecossistema Nativo",
+            "imageUrl": "https://chicorei.imgix.net/20731/2f0e0150-35c1-11ec-8cef-99541a60d245.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 9,
+            "title": "Camiseta Only Dog",
+            "imageUrl": "https://chicorei.imgix.net/20985/bbb24ba6-40c2-11ec-b986-d381b347a660.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        },
+        {
+            "id": 10,
+            "title": "Camiseta Doguinho Lover",
+            "imageUrl": "https://chicorei.imgix.net/20708/882f7f31-2c51-11ec-abf2-a54654c7fd9b.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
+            "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
+            "price": 44.90
+        }
+    ]
+}

@@ -1,8 +1,9 @@
 <script lang="ts">
-import ProductCard from "../../components/ProductCard.vue";
-import { some } from "../../data/source";
+import { defineComponent } from "vue";
 
-export default {
+import ProductCard from "../../components/ProductCard.vue";
+
+export default defineComponent({
   components: {
     ProductCard,
   },
@@ -11,8 +12,12 @@ export default {
       products: [] as Array<Object>,
     };
   },
-  mounted() {},
-};
+  mounted() {
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((data) => (this.products = data));
+  },
+});
 </script>
 
 <template>
@@ -20,7 +25,11 @@ export default {
   <router-link to="/about">Go to about page</router-link>
 
   <div class="container mt-4">
-    <div class="wrapperCards"></div>
+    <div class="wrapperCards">
+      <div v-for="(product, index) in products" :key="index">
+        <ProductCard :product="product" />
+      </div>
+    </div>
   </div>
 </template>
 
