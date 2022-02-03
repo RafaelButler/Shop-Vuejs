@@ -1,20 +1,22 @@
-<script>
-export default {
-  data() {
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  data: () => {
     return {
-      menuActive: false,
+      menuActive: false as boolean,
     };
   },
 
   methods: {
-    openMenu() {
+    openMenu(): void {
       this.menuActive = true;
     },
-    closeMenu() {
+    closeMenu(): void {
       this.menuActive = false;
     },
   },
-};
+});
 </script>
 
 <template>
