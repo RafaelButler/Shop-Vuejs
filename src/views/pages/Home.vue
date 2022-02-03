@@ -22,7 +22,7 @@ export default defineComponent({
 
 <template>
   Hello Home Component
-  <router-link to="/about">Go to about page</router-link>
+  <router-link to="/checkout">Go to about page</router-link>
 
   <div class="container mt-4">
     <div class="wrapperCards">
