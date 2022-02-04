@@ -1,10 +1,85 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { IMaskComponent } from "vue-imask";
+import { useToast, POSITION } from "vue-toastification";
+import { dataAdress } from "../../interfaces";
 
 export default defineComponent({
   components: {
     "imask-input": IMaskComponent,
+  },
+
+  data: () => {
+    return {
+      adress: {} as dataAdress,
+      disabledButton: true,
+    };
+  },
+  computed: {},
+  methods: {
+    async getAdress(): Promise<void> {
+      if (this.adress.cep != "_____-___") {
+        const data = await fetch(
+          `https://api.pagar.me/1/zipcodes/${this.adress.cep}`
+        )
+          .then((response: any) => response.json())
+          .then((res: any) => res);
+
+        this.toast.info("Buscando dados", {
+          position: POSITION.TOP_CENTER,
+          icon: "fas fa-circle-notch fa-spin",
+          timeout: 2000,
+        });
+
+        setTimeout(() => {
+          if (data.errors) {
+            this.toast.error(data.errors[0].message, {
+              position: POSITION.TOP_CENTER,
+              icon: "fas fa-check",
+              timeout: 3000,
+            });
+          } else {
+            this.toast.success("Endereço encontrado com sucesso", {
+              position: POSITION.TOP_CENTER,
+              icon: "fas fa-check",
+              timeout: 3000,
+            });
+
+            this.adress.street = data.street;
+            this.adress.neighborhood = data.neighborhood;
+            this.adress.state = data.state;
+            this.adress.city = data.city;
+          }
+        }, 4500);
+      }
+    },
+
+    closeOrder(e: { preventDefault: () => void }) {
+      e.preventDefault();
+
+      const stringToAvoid = "_____-___";
+
+      if (
+        this.adress.cep == stringToAvoid ||
+        this.adress.phone == "(___) _ ____-____" ||
+        this.adress.cardNumber == "____ ____ ____ ____" ||
+        this.adress.dueDate == "__/____" ||
+        this.adress.cvcCard == "____"
+      ) {
+        this.toast.info("Preencha os campos obrigatórios", {
+          position: POSITION.TOP_CENTER,
+          icon: "fas fa-exclamation-triangle",
+          timeout: 1000,
+        });
+      } else {
+        alert("concluido");
+      }
+    },
+  },
+
+  setup() {
+    const toast = useToast();
+    return { toast };
   },
 });
 </script>
@@ -16,7 +91,7 @@ export default defineComponent({
       <div class="col-md-8">
         <h2 class="mb-3">Finalização do pedido</h2>
 
-        <form>
+        <form @submit="closeOrder">
           <div class="mt-3">
             <div class="mb-3 mt-3">
               <h4>Informações de contato</h4>
@@ -30,6 +105,7 @@ export default defineComponent({
                 type="email"
                 class="form-control"
                 :mask="Number"
+                v-model="adress.email"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -44,6 +120,7 @@ export default defineComponent({
                   type="text"
                   class="form-control"
                   v-mask="{ mask: '(999) 9 9999-9999' }"
+                  v-model="adress.phone"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -65,12 +142,19 @@ export default defineComponent({
                     type="text"
                     class="form-control"
                     v-mask="{ mask: '99999-999' }"
+                    v-model="adress.cep"
                     id="exampleFormControlInput1"
                   />
                 </div>
               </div>
               <div class="col-md-1">
-                <button type="button" title="Procurar cep" class="searchButton">
+                <button
+                  type="button"
+                  @click="getAdress()"
+                  title="Procurar cep"
+                  class="searchButton"
+                  :disabled="adress.cep == '_____-___' ? disabledButton : false"
+                >
                   <i class="fas fa-search"></i>
                 </button>
               </div>
@@ -83,6 +167,7 @@ export default defineComponent({
                 required
                 type="text"
                 class="form-control"
+                v-model="adress.street"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -96,6 +181,7 @@ export default defineComponent({
                   required
                   type="text"
                   class="form-control"
+                  v-model="adress.city"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -107,6 +193,7 @@ export default defineComponent({
                   required
                   type="text"
                   class="form-control"
+                  v-model="adress.neighborhood"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -121,6 +208,7 @@ export default defineComponent({
                   required
                   type="text"
                   class="form-control"
+                  v-model="adress.number"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -132,6 +220,7 @@ export default defineComponent({
                   required
                   type="text"
                   class="form-control"
+                  v-model="adress.state"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -151,6 +240,7 @@ export default defineComponent({
                 type="text"
                 class="form-control"
                 v-mask="{ mask: '9999 9999 9999 9999' }"
+                v-model="adress.cardNumber"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -162,6 +252,7 @@ export default defineComponent({
                 required
                 type="text"
                 class="form-control"
+                v-model="adress.ownerCardName"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -176,6 +267,7 @@ export default defineComponent({
                   type="text"
                   class="form-control"
                   v-mask="{ mask: '99/9999' }"
+                  v-model="adress.dueDate"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -188,6 +280,7 @@ export default defineComponent({
                   type="text"
                   class="form-control"
                   v-mask="{ mask: '9999' }"
+                  v-model="adress.cvcCard"
                   id="exampleFormControlInput1"
                 />
               </div>

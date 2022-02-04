@@ -73,6 +73,7 @@ export default defineComponent({
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 1;
   transition: all 0.3s ease-in-out;
 
   @media (min-width: 700px) {
