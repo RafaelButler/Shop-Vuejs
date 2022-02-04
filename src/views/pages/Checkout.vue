@@ -1,3 +1,14 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import { IMaskComponent } from "vue-imask";
+
+export default defineComponent({
+  components: {
+    "imask-input": IMaskComponent,
+  },
+});
+</script>
+
 <template>
   <div class="container">
     <router-link to="/">Go to home page</router-link>
@@ -15,8 +26,10 @@
                 >Email</label
               >
               <input
+                required
                 type="email"
                 class="form-control"
+                :mask="Number"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -24,11 +37,16 @@
               <label for="exampleFormControlInput1" class="form-label"
                 >Telefone</label
               >
-              <input
-                type="email"
-                class="form-control"
-                id="exampleFormControlInput1"
-              />
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">+55</span>
+                <input
+                  required
+                  type="text"
+                  class="form-control"
+                  v-mask="{ mask: '(999) 9 9999-9999' }"
+                  id="exampleFormControlInput1"
+                />
+              </div>
             </div>
           </div>
 
@@ -43,8 +61,10 @@
                     >CEP</label
                   >
                   <input
-                    type="email"
+                    required
+                    type="text"
                     class="form-control"
+                    v-mask="{ mask: '99999-999' }"
                     id="exampleFormControlInput1"
                   />
                 </div>
@@ -60,7 +80,8 @@
                 >Rua</label
               >
               <input
-                type="email"
+                required
+                type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
               />
@@ -72,7 +93,8 @@
                   >Cidade</label
                 >
                 <input
-                  type="email"
+                  required
+                  type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
                 />
@@ -82,7 +104,8 @@
                   >Bairro</label
                 >
                 <input
-                  type="email"
+                  required
+                  type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
                 />
@@ -95,7 +118,8 @@
                   >Numero</label
                 >
                 <input
-                  type="email"
+                  required
+                  type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
                 />
@@ -105,7 +129,8 @@
                   >Estado</label
                 >
                 <input
-                  type="email"
+                  required
+                  type="text"
                   class="form-control"
                   id="exampleFormControlInput1"
                 />
@@ -122,8 +147,10 @@
                 >Numero do Cartão</label
               >
               <input
-                type="email"
+                required
+                type="text"
                 class="form-control"
+                v-mask="{ mask: '9999 9999 9999 9999' }"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -132,7 +159,8 @@
                 >Titulo do cartão</label
               >
               <input
-                type="email"
+                required
+                type="text"
                 class="form-control"
                 id="exampleFormControlInput1"
               />
@@ -144,8 +172,10 @@
                   >Data de vencimento</label
                 >
                 <input
-                  type="email"
+                  required
+                  type="text"
                   class="form-control"
+                  v-mask="{ mask: '99/9999' }"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -154,8 +184,10 @@
                   >CVC</label
                 >
                 <input
-                  type="email"
+                  required
+                  type="text"
                   class="form-control"
+                  v-mask="{ mask: '9999' }"
                   id="exampleFormControlInput1"
                 />
               </div>
@@ -165,7 +197,7 @@
             <div class="col-md-8"></div>
 
             <div class="col-md-4 mb-4">
-              <button type="button" title="Procurar cep" class="searchButton">
+              <button type="submit" title="Procurar cep" class="searchButton">
                 Fechar Pedido
               </button>
             </div>
