@@ -91,7 +91,6 @@ export default defineComponent({
 
 <template>
   <div class="container">
-    <router-link to="/">Go to home page</router-link>
     <div class="row">
       <div class="col-md-8">
         <h2 class="mb-3">Finalização do pedido</h2>
@@ -310,7 +309,16 @@ export default defineComponent({
             <ProductCart :product="product" />
           </div>
         </div>
-        <div class="sumTotal mt-4 mb-4">Total: R$ 1000.00</div>
+
+        <div class="sumTotal mt-4 mb-4">
+          Total: R$ {{ store.arraySumProducts.toFixed(2) }}
+        </div>
+
+        <router-link to="/">
+          <button type="submit" title="Procurar cep" class="keepBuying mt-4">
+            Continuar Comprando
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -336,17 +344,32 @@ form {
     background-color: var(--color-main);
     border: var(--color-main);
     color: var(--color-four);
-    padding: 4px 8px;
+    padding: 20px 8px;
     width: 100%;
     margin-bottom: 25px;
+    border-radius: 8px;
 
     @media (min-width: 700px) {
       & {
         margin-bottom: 0;
-        padding: 6px 8px;
+        padding: 20px 8px;
         margin-top: 15px;
       }
     }
+  }
+}
+
+.keepBuying {
+  background-color: #272343;
+  border: var(--color-main);
+  color: var(--color-four);
+  padding: 20px 8px;
+  width: 100%;
+  margin-bottom: 25px;
+  border-radius: 8px;
+
+  &:hover {
+    opacity: 0.9;
   }
 }
 
@@ -360,6 +383,8 @@ form {
   background: var(--color-main);
   border-radius: 8px;
   color: var(--color-four);
+  height: 500px;
+  overflow-y: scroll;
 }
 
 .sumTotal {

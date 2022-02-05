@@ -41,7 +41,7 @@ export default defineComponent({
     </div>
     <div>
       <div class="mainContent">
-        <span>RS {{ product.price * product.qtdy }}</span
+        <span>RS {{ (product.price * product.qtdy).toFixed(2) }}</span
         ><span @click="store.removeProduct(product)" class="remove"
           >Remover</span
         >

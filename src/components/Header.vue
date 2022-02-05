@@ -29,8 +29,16 @@ export default defineComponent({
 
 <template>
   <div class="wrapper" :class="{ op: menuActive }">
-    <div class="container">
+    <div class="container iconSections">
       <i class="fas fa-bars icone" @click="openMenu()"></i>
+      <router-link
+        :class="store.products.length == 0 ? 'disabledCart' : ''"
+        class="amoutInCart"
+        to="/checkout"
+      >
+        <i class="fas fa-shopping-cart"></i>
+        <span v-if="store.products.length > 0">{{ store.totalAtCart }}</span>
+      </router-link>
     </div>
   </div>
   <div class="overlay" v-if="menuActive">
@@ -57,7 +65,10 @@ export default defineComponent({
 
     <div class="container containerCheckout">
       <div class="col-md-12 text-center">
-        <router-link to="/checkout">
+        <router-link
+          :class="store.products.length == 0 ? 'disabled' : ''"
+          to="/checkout"
+        >
           <button
             type="button"
             class="btn btn-light checkout"
@@ -81,8 +92,17 @@ export default defineComponent({
   display: flex;
   align-items: center;
 
-  .icone {
+  .iconSections {
+    display: flex;
+    justify-content: space-between;
     color: var(--color-four);
+
+    .disabledCart {
+      pointer-events: none;
+    }
+  }
+
+  .icone {
     cursor: pointer;
     font-size: 18px;
     margin-left: 1rem; // Esta propriedade será removida em telas grandes
@@ -96,6 +116,16 @@ export default defineComponent({
       margin-left: 0;
     }
   }
+
+  .amoutInCart {
+    color: var(--color-four);
+    text-decoration: none;
+
+    span {
+      font-size: 12px;
+      margin-left: 4px;
+    }
+  }
 }
 
 .containerCheckout {
@@ -104,6 +134,10 @@ export default defineComponent({
   .checkout {
     background: var(--color-four);
     padding: 0.5rem 9rem;
+  }
+
+  .disabled {
+    pointer-events: none;
   }
 }
 

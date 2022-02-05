@@ -2,7 +2,8 @@
   "name": "vite-project",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite & json-server ./src/data/source.json",
+    "dev": "vite",
+    "server": "json-server ./src/data/source.json",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },

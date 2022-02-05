@@ -2,7 +2,7 @@
     "products": [
         {
             "id": 1,
-            "title": "Camiseta O Auto da Compadecida",
+            "title": "Auto da Compadecida",
             "imageUrl": "https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60",
             "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
             "price": 44.90
@@ -51,7 +51,7 @@
         },
         {
             "id": 8,
-            "title": "Camiseta Ecossistema Nativo",
+            "title": "Camiseta Ecossistema",
             "imageUrl": "https://chicorei.imgix.net/20731/2f0e0150-35c1-11ec-8cef-99541a60d245.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
             "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
             "price": 44.90
@@ -65,7 +65,7 @@
         },
         {
             "id": 10,
-            "title": "Camiseta Doguinho Lover",
+            "title": "Doguinho Lover",
             "imageUrl": "https://chicorei.imgix.net/20708/882f7f31-2c51-11ec-abf2-a54654c7fd9b.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top",
             "description": "Camiseta feita artesanalmente com 100% de fibra natural de algodão sustentável, refinada e penteada",
             "price": 44.90

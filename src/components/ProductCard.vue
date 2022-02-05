@@ -40,7 +40,6 @@ export default defineComponent({
 
 
 <style lang="scss" scoped>
-
 .card{
 
   &:hover{
