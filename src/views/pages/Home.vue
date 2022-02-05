@@ -44,11 +44,12 @@ export default defineComponent({
 
   @media (min-width: 641px) {
     grid-template-columns: 50% 50%;
-    gap: 3rem;
+    gap: 1rem;
   }
 
   @media (min-width: 700px) {
     grid-template-columns: 33% 33% 33%;
+    gap: 1rem;
   }
 }
 </style>

@@ -7,13 +7,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ionited/mask-vue": "^0.1.18",
-    "@types/faker": "^6.6.9",
     "faker": "^6.6.6",
     "json-server": "^0.17.0",
     "sass": "^1.49.7",
     "sass-loader": "^12.4.0",
     "vue": "^3.2.25",
+    "vue-imask": "^6.4.0",
     "vue-router": "4",
     "vue-toastification": "^2.0.0-rc.5"
   },
