@@ -4,4 +4,9 @@ export interface propsProdcut {
   imageUrl: string;
   description: string;
   price: number;
+  qtdy: number;
+}
+
+export interface Products {
+  products: propsProdcut[];
 }

@@ -7,7 +7,14 @@ import { mask } from "@ionited/mask-vue";
 
 // Plugin to make Toast
 import Toast from "vue-toastification";
-// import "vue-toastification/dist/index.css";
 import "../src/styles/toast.scss";
 
-createApp(App).use(router).use(Toast).directive("mask", mask).mount("#app");
+//State management with Pinia https://pinia.vuejs.org/
+import { createPinia } from "pinia";
+
+createApp(App)
+  .use(router)
+  .use(Toast)
+  .use(createPinia())
+  .directive("mask", mask)
+  .mount("#app");

@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { propsProdcut } from "../interfaces/productInterface";
+import { propsProdcut } from "../interfaces";
 
 export default defineComponent({
   name: "ProductCard",

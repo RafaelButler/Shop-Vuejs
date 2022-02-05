@@ -2,6 +2,8 @@
 import { defineComponent } from "vue";
 
 import ProductCard from "../../components/ProductCard.vue";
+import { Products } from "../../interfaces";
+import { productStore } from "../../store/productStore";
 
 export default defineComponent({
   components: {
@@ -9,13 +11,18 @@ export default defineComponent({
   },
   data: () => {
     return {
-      products: [] as Array<Object>,
-    };
+      products: [],
+    } as Products;
   },
   mounted() {
     fetch("http://localhost:3000/products")
       .then((response) => response.json())
       .then((data) => (this.products = data));
+  },
+
+  setup() {
+    const store = productStore();
+    return { store };
   },
 });
 </script>
@@ -27,7 +34,7 @@ export default defineComponent({
   <div class="container mt-4">
     <div class="wrapperCards">
       <div v-for="(product, index) in products" :key="index">
-        <ProductCard :product="product" />
+        <ProductCard @click="store.addProduct(product)" :product="product" />
       </div>
     </div>
   </div>

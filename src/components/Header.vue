@@ -1,5 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import { productStore } from "../store/productStore";
+import ProductCart from "./productCart.vue";
 
 export default defineComponent({
   data: () => {
@@ -7,7 +9,6 @@ export default defineComponent({
       menuActive: false as boolean,
     };
   },
-
   methods: {
     openMenu(): void {
       this.menuActive = true;
@@ -15,6 +16,13 @@ export default defineComponent({
     closeMenu(): void {
       this.menuActive = false;
     },
+  },
+  components: { ProductCart },
+
+  setup() {
+    const store = productStore();
+
+    return { store };
   },
 });
 </script>
@@ -29,6 +37,17 @@ export default defineComponent({
     <div class="headerMenu">
       <span class="title">Menu</span>
       <span class="closeButton" @click="closeMenu()">X</span>
+    </div>
+
+    <div v-for="(product, index) in store.products" :key="index">
+      <ProductCart :product="product" />
+    </div>
+
+    <div class="row text-center">
+      <span v-if="store.products.length > 5" class="showMore"
+        >Mostrar Mais</span
+      >
+      <span v-if="store.products.length == 0" class="showMore">Vazio</span>
     </div>
   </div>
 </template>
@@ -69,12 +88,13 @@ export default defineComponent({
   box-shadow: 0px 0px 3px 0px var(--color-five);
   border-radius: 0px 10px 6px 0px;
   position: fixed;
-  width: 50%;
-  height: 100vh;
+  width: 90%;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 1;
   transition: all 0.3s ease-in-out;
+  // overflow-y: scroll;
 
   @media (min-width: 700px) {
     width: 20%;
@@ -100,5 +120,12 @@ export default defineComponent({
       font-size: 18px;
     }
   }
+}
+
+// Mostrar mais items clicando
+.showMore {
+  color: var(--color-four);
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
