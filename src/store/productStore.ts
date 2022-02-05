@@ -10,6 +10,7 @@ export const productStore = defineStore("product", {
   },
 
   actions: {
+    // Add product to cart, if exist sum quatity
     addProduct(productInfos: propsProdcut) {
       const isIn = this.products.some(
         (product) => product.id === productInfos.id
@@ -26,6 +27,7 @@ export const productStore = defineStore("product", {
       this.arraySize += 5;
     },
 
+    // take Out Product of array
     takeOutProduct(productInfos: propsProdcut) {
       const isIn = this.products.some(
         (product) => product.id === productInfos.id
@@ -42,6 +44,7 @@ export const productStore = defineStore("product", {
       }
     },
 
+    // Remove element from array
     removeProduct(productInfos: propsProdcut) {
       const index = this.products.indexOf(productInfos);
       this.products.splice(index, 1);
@@ -50,7 +53,9 @@ export const productStore = defineStore("product", {
   },
 
   getters: {
+    // Bring array with set arraySize
     arrayProducts: (state) => state.products.slice(0, state.arraySize),
+    // Bring sliced array of products to show in sidebar menu
     arrayProductsSizeFive: (state) => state.products.slice(0, 4),
   },
 });

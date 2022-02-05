@@ -20,6 +20,7 @@
 .main {
   text-align: center;
   margin-top: 60px;
+  overflow-x: hidden;
 }
 
 html {

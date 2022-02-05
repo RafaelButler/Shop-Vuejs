@@ -3,10 +3,13 @@ import { defineComponent } from "vue";
 import { IMaskComponent } from "vue-imask";
 import { useToast, POSITION } from "vue-toastification";
 import { dataAdress } from "../../interfaces";
+import ProductCart from "../../components/productCart.vue";
+import { productStore } from "../../store/productStore";
 
 export default defineComponent({
   components: {
     "imask-input": IMaskComponent,
+    ProductCart,
   },
 
   data: () => {
@@ -15,7 +18,7 @@ export default defineComponent({
       disabledButton: true,
     };
   },
-  computed: {},
+
   methods: {
     async getAdress(): Promise<void> {
       if (this.adress.cep != "_____-___") {
@@ -79,7 +82,9 @@ export default defineComponent({
 
   setup() {
     const toast = useToast();
-    return { toast };
+    const store = productStore();
+
+    return { toast, store };
   },
 });
 </script>
@@ -300,58 +305,12 @@ export default defineComponent({
 
       <div class="col-md-4">
         <div class="bag">
-          <h2>Sua sacola</h2>
-
-          <div class="card mb-3 mt-3" style="max-width: 540px">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img
-                  src="https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60"
-                  class="img-fluid rounded-start image"
-                  alt="..."
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card mb-3 mt-3" style="max-width: 540px">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img
-                  src="https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=425&h=600&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60"
-                  class="img-fluid rounded-start image"
-                  alt="..."
-                />
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                </div>
-              </div>
-            </div>
+          <h4>Sacola</h4>
+          <div v-for="(product, index) in store.products" :key="index">
+            <ProductCart :product="product" />
           </div>
         </div>
+        <div class="sumTotal mt-4 mb-4">Total: R$ 1000.00</div>
       </div>
     </div>
   </div>
@@ -389,25 +348,27 @@ form {
       }
     }
   }
+}
 
-  .bag {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: 1px solid var(--color-primary);
-    padding: 20px;
-    width: 100%;
-  }
-  .image {
-    height: 100%;
-    width: 30%;
+.bag {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--color-primary);
+  padding: 20px;
+  width: 100%;
+  background: var(--color-main);
+  border-radius: 8px;
+  color: var(--color-four);
+}
 
-    @media (min-width: 700px) {
-      & {
-        height: 100%;
-        width: 100%;
-      }
-    }
-  }
+.sumTotal {
+  background: var(--color-main);
+  padding: 20px;
+  text-align: right;
+  color: var(--color-four);
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
 }
 </style>

@@ -15,6 +15,7 @@ export default defineComponent({
     } as Products;
   },
   mounted() {
+    // Function to fetch all products to show in cards
     fetch("http://localhost:3000/products")
       .then((response) => response.json())
       .then((data) => (this.products = data));
@@ -28,8 +29,7 @@ export default defineComponent({
 </script>
 
 <template>
-  Hello Home Component
-  <router-link to="/checkout">Go to about page</router-link>
+  <div class="row"><h1>Camisetas</h1></div>
 
   <div class="container mt-4">
     <div class="wrapperCards">
