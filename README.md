@@ -46,7 +46,7 @@ yarn dev
 if it doesn't work, try:
 
 ```Bash
-yarn run json-server src/data/souce.json
+yarn run json-server src/data/source.json
 ```
 
 ### After that, run the command
