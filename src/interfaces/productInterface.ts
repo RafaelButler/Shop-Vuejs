@@ -10,3 +10,8 @@ export interface propsProdcut {
 export interface Products {
   products: propsProdcut[];
 }
+
+export interface ProductStoreState {
+  products: propsProdcut[];
+  arraySize: number;
+}

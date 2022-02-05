@@ -39,15 +39,35 @@ export default defineComponent({
       <span class="closeButton" @click="closeMenu()">X</span>
     </div>
 
-    <div v-for="(product, index) in store.products" :key="index">
+    <div v-for="(product, index) in store.arrayProductsSizeFive" :key="index">
       <ProductCart :product="product" />
     </div>
 
     <div class="row text-center">
-      <span v-if="store.products.length > 5" class="showMore"
-        >Mostrar Mais</span
-      >
+      <router-link to="/checkout">
+        <span
+          v-if="store.products.length >= 4"
+          class="showMore"
+          @click="closeMenu()"
+          >Mostrar todos do carrinho ?
+        </span>
+      </router-link>
       <span v-if="store.products.length == 0" class="showMore">Vazio</span>
+    </div>
+
+    <div class="container containerCheckout">
+      <div class="col-md-12 text-center">
+        <router-link to="/checkout">
+          <button
+            type="button"
+            class="btn btn-light checkout"
+            :disabled="store.products.length == 0"
+            @click="closeMenu()"
+          >
+            Checkout
+          </button>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -78,6 +98,15 @@ export default defineComponent({
   }
 }
 
+.containerCheckout {
+  position: absolute;
+  bottom: 20px;
+  .checkout {
+    background: var(--color-four);
+    padding: 0.5rem 9rem;
+  }
+}
+
 .op {
   opacity: 0.9;
 }
@@ -89,7 +118,7 @@ export default defineComponent({
   border-radius: 0px 10px 6px 0px;
   position: fixed;
   width: 90%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   z-index: 1;
@@ -97,7 +126,11 @@ export default defineComponent({
   // overflow-y: scroll;
 
   @media (min-width: 700px) {
-    width: 20%;
+    width: 50%;
+  }
+
+  @media (min-width: 1008px) {
+    width: 25%;
   }
 
   .headerMenu {

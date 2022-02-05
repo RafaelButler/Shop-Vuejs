@@ -33,15 +33,18 @@ export default defineComponent({
           <!-- <span class="mt-3">{{ product.description.slice(0, 9) }}...</span> -->
         </span>
         <span class="qtdy"
-          ><button>-</button>Qtdy: {{ product.qtdy
-          }}<button :click="store.addProduct">+</button></span
+          ><button @click="store.takeOutProduct(product)">-</button>Qtdy:
+          {{ product.qtdy
+          }}<button @click="store.addProduct(product)">+</button></span
         >
       </div>
     </div>
     <div>
       <div class="mainContent">
         <span>RS {{ product.price * product.qtdy }}</span
-        ><span class="remove">Remover</span>
+        ><span @click="store.removeProduct(product)" class="remove"
+          >Remover</span
+        >
       </div>
     </div>
   </div>
