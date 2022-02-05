@@ -42,7 +42,7 @@ If you are not familiar with [Typescript](https://www.typescriptlang.org/pt/), t
 ### You must run json-server to create a local server
 
 ```Bash
-yarn dev
+yarn server
 ```
 
 if it doesn't work, try:
@@ -56,13 +56,13 @@ yarn run json-server src/data/source.json
 ### After that, run the command
 
 ```Bash
-yarn start
+yarn dev
 ```
 
 or
 
 ```Bash
-npm start
+npm dev
 ```
 
 Open **localhost:3000** to view it in the browser.
