@@ -37,6 +37,8 @@ npm install
 
 If you are not familiar with [Typescript](https://www.typescriptlang.org/pt/), take a look at the documentation
 
+---
+
 ### You must run json-server to create a local server
 
 ```Bash
@@ -48,6 +50,8 @@ if it doesn't work, try:
 ```Bash
 yarn run json-server src/data/source.json
 ```
+
+---
 
 ### After that, run the command
 
